@@ -13,7 +13,7 @@ public class ChangeColor : MonoBehaviour
     }
     public void Blue()
     {
-        GetComponent<Renderer>().material.color = Color.blue;
+        GetComponent<Renderer>().material.color = Color.yellow;
     }
     public void Black()
     {
