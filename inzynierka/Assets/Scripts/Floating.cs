@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Floating : MonoBehaviour
 {
-    public float speed = 0.5f;
-    float speed2 = -0.5f;
+    public float speed;
     public Vector3 startposition;
     public Transform centre;
-    private bool lor;
     private float posX, posZ, angle = 0;
     float r = 6;
 
@@ -16,7 +14,6 @@ public class Floating : MonoBehaviour
     void Start()
     {
         transform.position = startposition;
-        lor = true;
     }
 
     // Update is called once per frame
@@ -24,32 +21,20 @@ public class Floating : MonoBehaviour
     {
         angle = angle + Time.deltaTime * speed;
         Debug.Log(angle); 
-        if (lor)
-        {
-            posX = centre.position.x + Mathf.Sin(angle) * r;
-            posZ = centre.position.z + Mathf.Cos(angle) * r;
-            transform.position = new Vector3(posX, 0, posZ);
+
+        posX = centre.position.x + Mathf.Sin(angle) * r;
+        posZ = centre.position.z + Mathf.Cos(angle) * r;
+        transform.position = new Vector3(posX, 0, posZ);
 ;
             if (angle >= 2.0)
             {
-                //lor = false;
-                speed = speed2;
+                speed = -speed;
             }
-        }
 
-        if(!lor)
-        {
-
-            posX = centre.position.x + Mathf.Cos(angle) * r;
-            posZ = centre.position.z + Mathf.Sin(angle) * r;
-            transform.position = new Vector3(posX, 0, posZ);
-
-            if (posX >= 3.5)
+            if (angle <= -2)
             {
-                lor = true;
-            }
-
-        }   
+                speed = -speed;
+            }  
 
         if (angle > 360)
         {
