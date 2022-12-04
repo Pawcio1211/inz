@@ -25,6 +25,8 @@ public class TestOY : MonoBehaviour
     string p = "0";
     string sl = "0";
     string sp = "0";
+    //string savePath = Application.persistentDataPath + "/WynikiOY.txt";
+    string savePath = "WynikiOY.txt";
 
     double y;
 
@@ -107,7 +109,7 @@ public class TestOY : MonoBehaviour
             bool i = false;
 
             //StreamReader sr = new StreamReader("WynikiOY.txt");
-            StreamReader sr = new StreamReader(Application.persistentDataPath + "/WynikiOY.txt");
+            StreamReader sr = new StreamReader(savePath);
             line = sr.ReadLine();
 
             while (line != null)
@@ -146,7 +148,7 @@ public class TestOY : MonoBehaviour
         try
         {
             //StreamWriter sw = new StreamWriter("WynikiOY.txt");
-            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOY.txt");
+            StreamWriter sw = new StreamWriter(savePath);
             sw.WriteLine("OY: " + L + " " + R);
             sw.Close();
         }
