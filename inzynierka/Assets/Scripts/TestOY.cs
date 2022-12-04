@@ -27,8 +27,8 @@ public class TestOY : MonoBehaviour
     string p = "0";
     string sl = "0";
     string sp = "0";
-    string savePath = Application.persistentDataPath + "/WynikiOY.txt";
-    //string savePath = "WynikiOY.txt";
+    //string savePath = Application.persistentDataPath + "/WynikiOY.txt";
+    string savePath = "WynikiOY.txt";
 
     double y;
 
