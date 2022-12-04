@@ -5,6 +5,7 @@ using UnityEngine;
 public class Floating : MonoBehaviour
 {
     public float speed = 0.5f;
+    float speed2 = -0.5f;
     public Vector3 startposition;
     public Transform centre;
     private bool lor;
@@ -31,12 +32,14 @@ public class Floating : MonoBehaviour
 ;
             if (angle >= 2.0)
             {
-                lor = false;
+                //lor = false;
+                speed = speed2;
             }
         }
 
         if(!lor)
         {
+
             posX = centre.position.x + Mathf.Cos(angle) * r;
             posZ = centre.position.z + Mathf.Sin(angle) * r;
             transform.position = new Vector3(posX, 0, posZ);
@@ -45,6 +48,7 @@ public class Floating : MonoBehaviour
             {
                 lor = true;
             }
+
         }   
 
         if (angle > 360)
