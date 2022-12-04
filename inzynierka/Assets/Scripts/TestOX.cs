@@ -10,8 +10,10 @@ public class TestOX : MonoBehaviour
     public Text txtUp;
     public Text txtD;
     public Transform target;
-    public Transform scorUp;
-    public Transform scorD;
+    public Transform scorRUp;
+    public Transform scorLUp;
+    public Transform scorRD;
+    public Transform scorLD;
 
     float r = 5;
 
@@ -25,7 +27,7 @@ public class TestOX : MonoBehaviour
     string sUp = "0";
     string sD = "0";
     string savePath = Application.persistentDataPath + "/WynikiOX.txt";
-    //string savePath = "WynikiOX.txt" // do testowania
+    //string savePath = "WynikiOX.txt"; // do testowania
 
 
     double x;
@@ -171,15 +173,27 @@ public class TestOX : MonoBehaviour
         float yD = (float)Math.Sin(b * Math.PI / 180) * r;
         float zD = (float)Math.Cos(b * Math.PI / 180) * r;
 
-        scorUp.localPosition = new Vector3(
-            scorUp.localPosition.x,
+        scorRUp.localPosition = new Vector3(
+            scorRUp.localPosition.x,
             yUp,
             zUp);
-        scorD.localPosition = new Vector3(
-            scorUp.localPosition.x,
+        scorLUp.localPosition = new Vector3(
+            scorLUp.localPosition.x,
+            yUp,
+            zUp);
+
+
+
+        scorRD.localPosition = new Vector3(
+            scorRD.localPosition.x,
             yD,
             zD);
 
+
+        scorLD.localPosition = new Vector3(
+            scorLD.localPosition.x,
+            yD,
+            zD);
 
     }
 

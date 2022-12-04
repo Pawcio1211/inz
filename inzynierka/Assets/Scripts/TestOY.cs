@@ -11,8 +11,10 @@ public class TestOY : MonoBehaviour
     public Text txtL;
     public Text txtP;
     public Transform target;
-    public Transform scorL;
-    public Transform scorP;
+    public Transform scorLUp;
+    public Transform scorLD;
+    public Transform scorPUp;
+    public Transform scorPD;
 
     float r = 5;
 
@@ -25,8 +27,8 @@ public class TestOY : MonoBehaviour
     string p = "0";
     string sl = "0";
     string sp = "0";
-    //string savePath = Application.persistentDataPath + "/WynikiOY.txt";
-    string savePath = "WynikiOY.txt";
+    string savePath = Application.persistentDataPath + "/WynikiOY.txt";
+    //string savePath = "WynikiOY.txt";
 
     double y;
 
@@ -170,14 +172,24 @@ public class TestOY : MonoBehaviour
         float xP = (float)Math.Cos(-b * (Math.PI) / 180) * r;
         float zP = (float)Math.Sin(-b * (Math.PI) / 180) * r;
 
-        scorL.position = new Vector3(
+        scorLUp.position = new Vector3(
             xL,
-            scorL.position.y,
+            scorLUp.position.y,
+            zL);
+        scorLD.position = new Vector3(
+            xL,
+            scorLD.position.y,
             zL);
 
-        scorP.position = new Vector3(
+        scorPUp.position = new Vector3(
             xP,
-            scorP.position.y,
+            scorPUp.position.y,
+            zP);
+
+
+        scorPD.position = new Vector3(
+            xP,
+            scorPD.position.y,
             zP);
 
 
