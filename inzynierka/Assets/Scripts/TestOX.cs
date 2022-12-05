@@ -24,9 +24,6 @@ public class TestOX : MonoBehaviour
     string down = "0";
     string sUp = "0";
     string sD = "0";
-    string savePath = Application.persistentDataPath + "/WynikiOX.txt";
-    //string savePath = "WynikiOX.txt" // do testowania
-
 
     double x;
 
@@ -112,7 +109,7 @@ public class TestOX : MonoBehaviour
             bool t = false;
             bool i = false;
 
-            StreamReader sr = new StreamReader(savePath);
+            StreamReader sr = new StreamReader("WynikiOX.txt");
             line = sr.ReadLine();
 
             while (line != null)
@@ -150,7 +147,7 @@ public class TestOX : MonoBehaviour
     {
         try
         {
-            StreamWriter sw = new StreamWriter(savePath);
+            StreamWriter sw = new StreamWriter("WynikiOX.txt");
             sw.WriteLine("OX: " + Up + " " + D);
             sw.Close();
         }
