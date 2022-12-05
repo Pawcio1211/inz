@@ -10,9 +10,14 @@ public class TestOY : MonoBehaviour
 {
     public Text txtL;
     public Text txtP;
+
     public Transform target;
-    public Transform scorL;
-    public Transform scorP;
+
+    public Transform scorLUp;
+    public Transform scorLDown;
+
+    public Transform scorPUp;
+    public Transform scorPDown;
 
     float r = 5;
 
@@ -168,14 +173,25 @@ public class TestOY : MonoBehaviour
         float xP = (float)Math.Cos(-b * (Math.PI) / 180) * r;
         float zP = (float)Math.Sin(-b * (Math.PI) / 180) * r;
 
-        scorL.position = new Vector3(
+        scorLUp.position = new Vector3(
             xL,
-            scorL.position.y,
+            scorLUp.position.y,
             zL);
 
-        scorP.position = new Vector3(
+        scorLDown.position = new Vector3(
+            xL,
+            scorLDown.position.y,
+            zL);
+
+        //________________________________
+        scorPUp.position = new Vector3(
             xP,
-            scorP.position.y,
+            scorPUp.position.y,
+            zP);
+
+        scorPDown.position = new Vector3(
+            xP,
+            scorPDown.position.y,
             zP);
 
 

@@ -9,9 +9,14 @@ public class TestOX : MonoBehaviour
 {
     public Text txtUp;
     public Text txtD;
+
     public Transform target;
-    public Transform scorUp;
-    public Transform scorD;
+
+    public Transform scorUpR;
+    public Transform scorUpL;
+
+    public Transform scorDR;
+    public Transform scorDL;
 
     float r = 5;
 
@@ -168,15 +173,25 @@ public class TestOX : MonoBehaviour
         float yD = (float)Math.Sin(b * Math.PI / 180) * r;
         float zD = (float)Math.Cos(b * Math.PI / 180) * r;
 
-        scorUp.localPosition = new Vector3(
-            scorUp.localPosition.x,
+        scorUpR.localPosition = new Vector3(
+            scorUpR.localPosition.x,
             yUp,
             zUp);
-        scorD.localPosition = new Vector3(
-            scorUp.localPosition.x,
+
+        scorUpL.localPosition = new Vector3(
+            scorUpL.localPosition.x,
+            yUp,
+            zUp);
+
+        scorDR.localPosition = new Vector3(
+            scorUpR.localPosition.x,
             yD,
             zD);
 
+        scorDL.localPosition = new Vector3(
+            scorUpL.localPosition.x,
+            yD,
+            zD);
 
     }
 
