@@ -9,6 +9,7 @@ public class MoveX : MonoBehaviour
     public Transform centre;
     private float posX, posZ, angle = 0;
     float r = 7;
+    bool start = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,20 +20,29 @@ public class MoveX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
         angle = angle + Time.deltaTime * speed;
 
         posX = centre.position.x + Mathf.Sin(angle) * r;
         posZ = centre.position.x + Mathf.Cos(angle) * r;
         transform.position = new Vector3(posX, 0, posZ);
 
-        if(angle >= 2f || angle <= -2f)
+        if (angle >= 2f || angle <= -2f)
         {
             speed = -speed;
         }
 
-        if(angle > 360)
+        if (angle > 360)
         {
             angle = 0;
         }
+        Debug.Log("działa");
+
     }
+
+    public void Set() { speed = 0.3f; }
+    public void Remuwe() { speed = 0f; }
+
 }
