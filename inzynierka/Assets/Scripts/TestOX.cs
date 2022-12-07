@@ -9,14 +9,11 @@ public class TestOX : MonoBehaviour
 {
     public Text txtUp;
     public Text txtD;
-
     public Transform target;
-
-    public Transform scorUpR;
-    public Transform scorUpL;
-
-    public Transform scorDR;
-    public Transform scorDL;
+    public Transform scorRUp;
+    public Transform scorLUp;
+    public Transform scorRD;
+    public Transform scorLD;
 
     float r = 5;
 
@@ -29,6 +26,9 @@ public class TestOX : MonoBehaviour
     string down = "0";
     string sUp = "0";
     string sD = "0";
+    //string savePath = Application.persistentDataPath + "/WynikiOX.txt";
+    string savePath = "WynikiOX.txt"; // do testowania
+
 
     double x;
 
@@ -114,9 +114,13 @@ public class TestOX : MonoBehaviour
             bool t = false;
             bool i = false;
 
+<<<<<<< HEAD
             //StreamReader sr = new StreamReader("WynikiOX.txt");
             StreamReader sr = new StreamReader(Application.persistentDataPath + "/WynikiOX.txt");
 
+=======
+            StreamReader sr = new StreamReader(savePath);
+>>>>>>> 4e6bd5a2d4ee05f7b4a61ac8b75207bc6e4c7736
             line = sr.ReadLine();
 
             while (line != null)
@@ -154,8 +158,12 @@ public class TestOX : MonoBehaviour
     {
         try
         {
+<<<<<<< HEAD
             //StreamWriter sw = new StreamWriter("WynikiOX.txt");
             StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOX.txt");
+=======
+            StreamWriter sw = new StreamWriter(savePath);
+>>>>>>> 4e6bd5a2d4ee05f7b4a61ac8b75207bc6e4c7736
             sw.WriteLine("OX: " + Up + " " + D);
             sw.Close();
         }
@@ -176,23 +184,25 @@ public class TestOX : MonoBehaviour
         float yD = (float)Math.Sin(b * Math.PI / 180) * r;
         float zD = (float)Math.Cos(b * Math.PI / 180) * r;
 
-        scorUpR.localPosition = new Vector3(
-            scorUpR.localPosition.x,
+        scorRUp.localPosition = new Vector3(
+            scorRUp.localPosition.x,
+            yUp,
+            zUp);
+        scorLUp.localPosition = new Vector3(
+            scorLUp.localPosition.x,
             yUp,
             zUp);
 
-        scorUpL.localPosition = new Vector3(
-            scorUpL.localPosition.x,
-            yUp,
-            zUp);
 
-        scorDR.localPosition = new Vector3(
-            scorUpR.localPosition.x,
+
+        scorRD.localPosition = new Vector3(
+            scorRD.localPosition.x,
             yD,
             zD);
 
-        scorDL.localPosition = new Vector3(
-            scorUpL.localPosition.x,
+
+        scorLD.localPosition = new Vector3(
+            scorLD.localPosition.x,
             yD,
             zD);
 

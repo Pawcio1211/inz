@@ -10,14 +10,11 @@ public class TestOY : MonoBehaviour
 {
     public Text txtL;
     public Text txtP;
-
     public Transform target;
-
     public Transform scorLUp;
-    public Transform scorLDown;
-
+    public Transform scorLD;
     public Transform scorPUp;
-    public Transform scorPDown;
+    public Transform scorPD;
 
     float r = 5;
 
@@ -30,6 +27,8 @@ public class TestOY : MonoBehaviour
     string p = "0";
     string sl = "0";
     string sp = "0";
+    //string savePath = Application.persistentDataPath + "/WynikiOY.txt";
+    string savePath = "WynikiOY.txt";
 
     double y;
 
@@ -112,7 +111,11 @@ public class TestOY : MonoBehaviour
             bool i = false;
 
             //StreamReader sr = new StreamReader("WynikiOY.txt");
+<<<<<<< HEAD
             StreamReader sr = new StreamReader(Application.persistentDataPath + "/WynikiOY.txt");
+=======
+            StreamReader sr = new StreamReader(savePath);
+>>>>>>> 4e6bd5a2d4ee05f7b4a61ac8b75207bc6e4c7736
             line = sr.ReadLine();
 
             while (line != null)
@@ -151,7 +154,11 @@ public class TestOY : MonoBehaviour
         try
         {
             //StreamWriter sw = new StreamWriter("WynikiOY.txt");
+<<<<<<< HEAD
             StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOY.txt");
+=======
+            StreamWriter sw = new StreamWriter(savePath);
+>>>>>>> 4e6bd5a2d4ee05f7b4a61ac8b75207bc6e4c7736
             sw.WriteLine("OY: " + L + " " + R);
             sw.Close();
         }
@@ -177,21 +184,20 @@ public class TestOY : MonoBehaviour
             xL,
             scorLUp.position.y,
             zL);
-
-        scorLDown.position = new Vector3(
+        scorLD.position = new Vector3(
             xL,
-            scorLDown.position.y,
+            scorLD.position.y,
             zL);
 
-        //________________________________
         scorPUp.position = new Vector3(
             xP,
             scorPUp.position.y,
             zP);
 
-        scorPDown.position = new Vector3(
+
+        scorPD.position = new Vector3(
             xP,
-            scorPDown.position.y,
+            scorPD.position.y,
             zP);
 
 
