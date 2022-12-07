@@ -114,7 +114,9 @@ public class TestOX : MonoBehaviour
             bool t = false;
             bool i = false;
 
-            StreamReader sr = new StreamReader("WynikiOX.txt");
+            //StreamReader sr = new StreamReader("WynikiOX.txt");
+            StreamReader sr = new StreamReader(Application.persistentDataPath + "/WynikiOX.txt");
+
             line = sr.ReadLine();
 
             while (line != null)
@@ -152,7 +154,8 @@ public class TestOX : MonoBehaviour
     {
         try
         {
-            StreamWriter sw = new StreamWriter("WynikiOX.txt");
+            //StreamWriter sw = new StreamWriter("WynikiOX.txt");
+            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOX.txt");
             sw.WriteLine("OX: " + Up + " " + D);
             sw.Close();
         }

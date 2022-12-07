@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveX : MonoBehaviour
 {
-    public float speed;
+    private float speed;
     public Vector3 startposition;
     public Transform centre;
     private float posX, posZ, angle = 0;
