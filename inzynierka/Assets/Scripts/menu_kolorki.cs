@@ -1,11 +1,17 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class menu_kolorki : MonoBehaviour
+public class Menu_kolorki : MonoBehaviour
 {
-    public void Red()
+    public void Kolor_podswietlenie()
     {
-        GetComponent<Renderer>().material.color = Color.red;
+        GetComponent<Renderer>().material.color = new Color32(88,0,0,255);
+    }
+
+    public void Kolor()
+    {
+        GetComponent<Renderer>().material.color = new Color32(120,0,0,255);
     }
 }
