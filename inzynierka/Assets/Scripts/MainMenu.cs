@@ -14,4 +14,14 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Trening");
     }
+
+    public void Ustawienia_menu()
+    {
+        SceneManager.LoadScene("Ustawienia_Menu");
+    }
+
+    public void Cofnij_menu()
+    {
+        SceneManager.LoadScene("Menu3D");
+    }
 }
