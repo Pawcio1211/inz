@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Badania");
     }
 
-    public void Trening()
+    public void Ustawienia_trening()
     {
         SceneManager.LoadScene("Ustawienia_Menu");
     }

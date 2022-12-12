@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44031927, g: 0.48888415, b: 0.56905186, a: 1}
+  m_IndirectSpecularColor: {r: 0.44031945, g: 0.48888457, b: 0.5690525, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1409,8 +1409,8 @@ GameObject:
   - component: {fileID: 2143806289}
   - component: {fileID: 2143806288}
   - component: {fileID: 2143806287}
-  - component: {fileID: 2143806286}
   - component: {fileID: 2143806285}
+  - component: {fileID: 2143806286}
   - component: {fileID: 2143806284}
   m_Layer: 0
   m_Name: Przycisk_Trening
@@ -1449,7 +1449,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 2143806286}
-          m_MethodName: Trening
+          m_MethodName: Ustawienia_trening
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
