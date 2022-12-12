@@ -12,16 +12,21 @@ public class MainMenu : MonoBehaviour
 
     public void Trening()
     {
-        SceneManager.LoadScene("Trening");
-    }
-
-    public void Ustawienia_menu()
-    {
         SceneManager.LoadScene("Ustawienia_Menu");
     }
 
     public void Cofnij_menu()
     {
         SceneManager.LoadScene("Menu3D");
+    }
+
+    public void OsX()
+    {
+        SceneManager.LoadScene("TreningX");
+    }
+
+    public void OsY()
+    {
+        SceneManager.LoadScene("TreningY");
     }
 }

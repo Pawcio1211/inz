@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Badania.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Trening.unity
+    path: Assets/Scenes/TreningX.unity
     guid: 1a8120418ac58f947840ac6c5434d5fe
   - enabled: 1
     path: Assets/Scenes/Menu.unity
