@@ -7,11 +7,11 @@ public class Menu_kolorki : MonoBehaviour
 {
     public void Kolor_podswietlenie()
     {
-        GetComponent<Renderer>().material.color = new Color32(88,0,0,255);
+        GetComponent<Renderer>().material.color = new Color32(0,53,96,255);
     }
 
     public void Kolor()
     {
-        GetComponent<Renderer>().material.color = new Color32(120,0,0,255);
+        GetComponent<Renderer>().material.color = new Color32(22,88,138,255);
     }
 }
