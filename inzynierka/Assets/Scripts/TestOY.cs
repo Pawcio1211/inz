@@ -30,7 +30,9 @@ public class TestOY : MonoBehaviour
     String R = "0";
     public String yL = "0";
     public String yR = "0";
-
+    public bool Jump = false;
+    public bool Submit = false;
+    public bool Cancel = false;
     double y;
 
 
@@ -44,6 +46,11 @@ public class TestOY : MonoBehaviour
     {
         Measurement();
         SaveBestScor();
+        Jump = Input.GetButton("Jump");
+        Submit = Input.GetButton("Submit");
+        Cancel = Input.GetButton("Cancel");
+        if (Cancel)
+            blokada();
 
     }
 
@@ -51,6 +58,7 @@ public class TestOY : MonoBehaviour
     public void odznacz() { chek = false; }
     public void blokada()
     {
+      
         if (y > 0 && y < 180)
         {
             if (!blokR)
