@@ -30,9 +30,11 @@ public class TestOY : MonoBehaviour
     String R = "0";
     public String yL = "0";
     public String yR = "0";
+    
     public bool Jump = false;
     public bool Submit = false;
     public bool Cancel = false;
+    
     double y;
 
 
@@ -162,9 +164,10 @@ public class TestOY : MonoBehaviour
     {
         try
         {
+            //tutaj dodać zapis w miejscu na komurcee
             StreamWriter sw = new StreamWriter("WynikiOY.txt");
             //StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOY.txt");
-            sw.WriteLine("OY: " + L + " " + R);
+            //sw.WriteLine("OY: " + L + " " + R);
             sw.WriteLine("\"yL\":\"" + L + "\",\"yR\":\"" + R + "\"");
             sw.Close();
         }
