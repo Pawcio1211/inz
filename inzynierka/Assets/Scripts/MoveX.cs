@@ -9,7 +9,7 @@ public class MoveX : MonoBehaviour
     public Transform centre;
     private float posX, posZ, angle = 0;
     float r = 7;
-    bool start = false, side;
+    bool side;
 
     // Start is called before the first frame update
     void Start()
