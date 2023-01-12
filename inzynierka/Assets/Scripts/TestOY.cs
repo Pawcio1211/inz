@@ -16,43 +16,34 @@ public class TestOY : MonoBehaviour
     public Transform scorLUp;
     public Transform scorLDown;
 
-    public Transform scorRUp;
-    public Transform scorRDown;
+    public Transform scorPUp;
+    public Transform scorPDown;
 
-    float r = 6;
+    float r = 5;
 
     bool chek = false;
     bool blokL = false;
-    bool blokR = false;
+    bool blokP = false;
     bool zapis = true;
 
-    String L = "0";
-    String R = "0";
-    public String yL = "0";
-    public String yR = "0";
-    
-    public bool Jump = false;
-    public bool Submit = false;
-    public bool Cancel = false;
-    
+    string l = "0";
+    string p = "0";
+    string sl = "0";
+    string sp = "0";
+
     double y;
 
 
     private void Start()
     {
         Load();
-        SetScor(Convert.ToDouble(yL), Convert.ToDouble(yR));
+        SetScor(Convert.ToDouble(sl), Convert.ToDouble(sp));
 
     }
     void LateUpdate()
     {
         Measurement();
         SaveBestScor();
-        Jump = Input.GetButton("Jump");
-        Submit = Input.GetButton("Submit");
-        Cancel = Input.GetButton("Cancel");
-        if (Cancel)
-            blokada();
 
     }
 
@@ -60,13 +51,12 @@ public class TestOY : MonoBehaviour
     public void odznacz() { chek = false; }
     public void blokada()
     {
-      
         if (y > 0 && y < 180)
         {
-            if (!blokR)
-                blokR = true;
+            if (!blokP)
+                blokP = true;
             else
-            { blokR = false; zapis = true; }
+            { blokP = false; zapis = true; }
         }
         else
         {
@@ -84,30 +74,30 @@ public class TestOY : MonoBehaviour
         {
             y = target.rotation.eulerAngles.y;
             if (y > 0 && y < 180)
-                R = y.ToString();
+                p = y.ToString();
             else
-                L = Math.Abs(y - 360).ToString();
+                l = Math.Abs(y - 360).ToString();
 
 
-            if (R.IndexOf(',') > -1)
-                R = R.Remove(R.IndexOf(','));
-            else if (R.IndexOf('.') > -1)
-                R = R.Remove(R.IndexOf('.'));
+            if (p.IndexOf(',') > -1)
+                p = p.Remove(p.IndexOf(','));
+            else if (p.IndexOf('.') > -1)
+                p = p.Remove(p.IndexOf('.'));
 
-            if (L.IndexOf(',') > -1)
-                L = L.Remove(L.IndexOf(','));
-            else if (L.IndexOf('.') > -1)
-                L = L.Remove(L.IndexOf('.'));
+            if (l.IndexOf(',') > -1)
+                l = l.Remove(l.IndexOf(','));
+            else if (l.IndexOf('.') > -1)
+                l = l.Remove(l.IndexOf('.'));
 
             if (!blokL)
-                txtL.text = L;
-            if (!blokR)
-                txtP.text = R;
+                txtL.text = l;
+            if (!blokP)
+                txtP.text = p;
         }
     }
     void SaveBestScor()
     {
-        if (chek && blokR && blokL && zapis)
+        if (chek && blokP && blokL && zapis)
         {
             Save(txtL.text.ToString(), txtP.text.ToString());
             zapis = false;
@@ -115,10 +105,9 @@ public class TestOY : MonoBehaviour
     }
     void Load()
     {
-        
+        string line;
         try
         {
-            /*
             bool t = false;
             bool i = false;
 
@@ -133,10 +122,10 @@ public class TestOY : MonoBehaviour
                 foreach (String str in words)
                 {
                     if (t && !i)
-                    { yL = str; i = true; }
+                    { sl = str; i = true; }
 
                     else if (t && i)
-                    { yR = str; i = false; t = false; }
+                    { sp = str; i = false; t = false; }
 
                     if (str == "OY:")
                         t = true;
@@ -146,10 +135,7 @@ public class TestOY : MonoBehaviour
             }
 
             sr.Close();
-             */
-            String pacjent = System.IO.File.ReadAllText("Pacjent.json");
-            pacjent = pacjent.Trim('[', ']');
-            JsonUtility.FromJsonOverwrite(pacjent, this);
+            Console.ReadLine();
         }
         catch (Exception e)
         {
@@ -160,15 +146,13 @@ public class TestOY : MonoBehaviour
             Console.WriteLine("Executing finally block.");
         }
     }
-    void Save(String L, String R)
+    void Save(string L, string R)
     {
         try
         {
-            //tutaj dodać zapis w miejscu na komurcee
             StreamWriter sw = new StreamWriter("WynikiOY.txt");
             //StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOY.txt");
-            //sw.WriteLine("OY: " + L + " " + R);
-            sw.WriteLine("\"yL\":\"" + L + "\",\"yR\":\"" + R + "\"");
+            sw.WriteLine("OY: " + L + " " + R);
             sw.Close();
         }
         catch (Exception e)
@@ -200,17 +184,17 @@ public class TestOY : MonoBehaviour
             zL);
 
         //________________________________
-        scorRUp.position = new Vector3(
+        scorPUp.position = new Vector3(
             xP,
-            scorRUp.position.y,
+            scorPUp.position.y,
             zP);
 
-        scorRDown.position = new Vector3(
+        scorPDown.position = new Vector3(
             xP,
-            scorRDown.position.y,
+            scorPDown.position.y,
             zP);
 
 
     }
-    
+
 }

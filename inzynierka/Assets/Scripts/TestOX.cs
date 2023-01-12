@@ -4,10 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.IO;
-using System.Text;
-
-
-
 
 public class TestOX : MonoBehaviour
 {
@@ -22,25 +18,24 @@ public class TestOX : MonoBehaviour
     public Transform scorDR;
     public Transform scorDL;
 
-    float r = 6;
+    float r = 5;
 
     bool chek = false;
     bool blokUp = false;
     bool blokD = false;
     bool zapis = true;
 
-    String up = "0";
-    String down = "0";
-    public String xUp = "0";
-    public String xD = "0";
-    
+    string up = "0";
+    string down = "0";
+    string sUp = "0";
+    string sD = "0";
 
     double x;
 
     private void Start()
     {
         Load();
-        SetScor(Convert.ToDouble(xUp), Convert.ToDouble(xD));
+        SetScor(Convert.ToDouble(sUp), Convert.ToDouble(sD));
     }
     void LateUpdate()
     {
@@ -115,7 +110,7 @@ public class TestOX : MonoBehaviour
     {
         string line;
         try
-        {/*
+        {
             bool t = false;
             bool i = false;
 
@@ -124,9 +119,8 @@ public class TestOX : MonoBehaviour
 
             while (line != null)
             {
-                line.Trim('\"',' ',':');
                 String[] words = line.Split(new[] { " " }, StringSplitOptions.None);
-                
+
                 foreach (String str in words)
                 {
                     if (t && !i)
@@ -144,11 +138,6 @@ public class TestOX : MonoBehaviour
 
             sr.Close();
             Console.ReadLine();
-          */
-            String pacjent = System.IO.File.ReadAllText("Pacjent.json");
-            pacjent = pacjent.Trim('[', ']');
-            JsonUtility.FromJsonOverwrite(pacjent, this);
-
         }
         catch (Exception e)
         {
@@ -164,7 +153,7 @@ public class TestOX : MonoBehaviour
         try
         {
             StreamWriter sw = new StreamWriter("WynikiOX.txt");
-            sw.WriteLine("\"xUp\":\"" + Up + "\",\"xD\":\"" + D+"\"");
+            sw.WriteLine("OX: " + Up + " " + D);
             sw.Close();
         }
         catch (Exception e)
