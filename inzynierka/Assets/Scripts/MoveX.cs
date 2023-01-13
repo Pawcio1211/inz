@@ -35,7 +35,7 @@ public class MoveX : MonoBehaviour
 
     public void Set() 
     { 
-        if (angle >= 1.5f) 
+        if (angle >= 0.8f) 
         {
             side = true;
         }
@@ -44,7 +44,7 @@ public class MoveX : MonoBehaviour
             speed = 0.3f;
         }
 
-        if (angle <= -1.5f) 
+        if (angle <= -0.8) 
         {
             side = false;
         }        

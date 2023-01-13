@@ -29,4 +29,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("TreningY");
     }
+
+    public void OsZ()
+    {
+        SceneManager.LoadScene("TreningZ");
+    }
 }
