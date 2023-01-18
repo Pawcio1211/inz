@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveX : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class MoveX : MonoBehaviour
     public Transform centre;
     private float posX, posZ, angle = 0;
     float r = 9;
-    bool side, go;
+    bool side, go, jump;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,13 @@ public class MoveX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        jump = Input.GetButton("Jump");
+
+        if (jump)
+        {
+            SceneManager.LoadScene("Menu3D");
+        }
+
         if (go)
         {
             angle = angle + Time.deltaTime * speed;

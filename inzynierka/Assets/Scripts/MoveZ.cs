@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveZ : MonoBehaviour
 {
     public Transform target;
     public float speed;
     private float posZ;
-    bool side, go;
+    bool side, go, jump;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,13 @@ public class MoveZ : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        jump = Input.GetButton("Jump");
+
+        if (jump)
+        {
+            SceneManager.LoadScene("Menu3D");
+        }
+
         if (go)
         {
             transform.Rotate(new Vector3(0, 0, speed));
