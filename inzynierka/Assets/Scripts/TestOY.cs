@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 
 public class TestOY : MonoBehaviour
@@ -25,6 +26,7 @@ public class TestOY : MonoBehaviour
     bool blokL = false;
     bool blokP = false;
     bool zapis = true;
+    bool tri;
 
     string l = "0";
     string p = "0";
@@ -45,6 +47,12 @@ public class TestOY : MonoBehaviour
         Measurement();
         SaveBestScor();
 
+        tri = Input.GetButton("trojkat");
+
+        if (tri)
+        {
+            SceneManager.LoadScene("Menu3D");
+        }
     }
 
     public void zaznaczenie() { chek = true; }

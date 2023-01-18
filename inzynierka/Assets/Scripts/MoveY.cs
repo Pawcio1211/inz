@@ -9,7 +9,7 @@ public class MoveY : MonoBehaviour
     public Transform centre;
     private float posY, posZ, angle = 0;
     float r = 9;
-    bool side, go, jump;
+    bool side, go, tri;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,9 @@ public class MoveY : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jump = Input.GetButton("Jump");
+        tri = Input.GetButton("trojkat");
 
-        if (jump)
+        if (tri)
         {
             SceneManager.LoadScene("Menu3D");
         }
