@@ -4,53 +4,52 @@ using UnityEngine;
 
 public class MoveX : MonoBehaviour
 {
-    public float speed;
-    public Vector3 startposition;
+    private float speed;
     public Transform centre;
     private float posX, posZ, angle = 0;
-    float r = 7;
-    bool side;
+    float r = 9;
+    bool side, go;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = startposition;
         side = false;
+        go = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        angle = angle + Time.deltaTime * speed;
-        
-        posX = centre.position.x + Mathf.Sin(angle) * r;
-        posZ = centre.position.x + Mathf.Cos(angle) * r;
-        transform.position = new Vector3(posX, 0, posZ);
-
-        if (angle > 360)
+        if (go)
         {
-            angle = 0;
+            angle = angle + Time.deltaTime * speed;
+        
+            posX = centre.position.x + Mathf.Sin(angle) * r;
+            posZ = centre.position.x + Mathf.Cos(angle) * r;
+            transform.position = new Vector3(posX, 0, posZ);
         }
+        
     }
 
     public void Set() 
-    { 
-        if (angle >= 0.8f) 
+    {
+        go = true;
+        if (angle >= 0.9f) 
         {
             side = true;
         }
         if (side == false)
         {
-            speed = 0.3f;
+            speed = 0.1f;
         }
 
-        if (angle <= -0.8) 
+        if (angle <= -0.9f) 
         {
             side = false;
         }        
         if (side == true)
         {
-            speed = -0.3f;
+            speed = -0.1f;
         }
     }
     public void Remove() { speed = 0f; }
