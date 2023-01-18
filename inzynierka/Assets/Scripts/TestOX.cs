@@ -18,7 +18,7 @@ public class TestOX : MonoBehaviour
     public Transform scorDR;
     public Transform scorDL;
 
-    float r = 5;
+    float r = 6;
 
     bool chek = false;
     bool blokUp = false;
@@ -27,15 +27,15 @@ public class TestOX : MonoBehaviour
 
     string up = "0";
     string down = "0";
-    string sUp = "0";
-    string sD = "0";
+    string xUp = "0";
+    string xD = "0";
 
     double x;
 
     private void Start()
     {
         Load();
-        SetScor(Convert.ToDouble(sUp), Convert.ToDouble(sD));
+        SetScor(Convert.ToDouble(xUp), Convert.ToDouble(xD));
     }
     void LateUpdate()
     {
@@ -108,6 +108,7 @@ public class TestOX : MonoBehaviour
     }
     void Load()
     {
+        /*
         string line;
         try
         {
@@ -139,6 +140,17 @@ public class TestOX : MonoBehaviour
             sr.Close();
             Console.ReadLine();
         }
+         */
+        try
+        {
+            String pacjent = System.IO.File.ReadAllText(Application.persistentDataPath + "/Pacjent.json").ToString();
+            Debug.Log(pacjent);
+            pacjent = pacjent.Trim('[');
+            pacjent = pacjent.Trim(']');
+            Debug.Log(pacjent);
+            Debug.Log(pacjent);
+            JsonUtility.FromJsonOverwrite(pacjent, this);
+        }
         catch (Exception e)
         {
             Console.WriteLine("Exception: " + e.Message);
@@ -152,8 +164,10 @@ public class TestOX : MonoBehaviour
     {
         try
         {
-            StreamWriter sw = new StreamWriter("WynikiOX.txt");
-            sw.WriteLine("OX: " + Up + " " + D);
+            //StreamWriter sw = new StreamWriter("WynikiOX.txt");
+            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOX.txt");
+            //sw.WriteLine("OX: " + Up + " " + D);
+            sw.WriteLine("\"xUp\":" + Up + ",\"xD\":" + D);
             sw.Close();
         }
         catch (Exception e)
