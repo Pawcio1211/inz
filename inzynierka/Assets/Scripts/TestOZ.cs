@@ -91,8 +91,8 @@ public class TestOZ : MonoBehaviour
     {
         try
         {
-            StreamWriter sw = new StreamWriter("WynikiOZ.txt");
-            //StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOZ.txt");
+            //StreamWriter sw = new StreamWriter("WynikiOZ.txt");
+            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOZ.txt");
             sw.WriteLine("\"zL\":" + L + ",\"zR\":" + R);
             sw.Close();
         }
@@ -120,8 +120,8 @@ public class TestOZ : MonoBehaviour
         try
         {
             //StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOY.txt");
-            String pacjent = System.IO.File.ReadAllText("Pacjent.json").ToString();
-            //String pacjent = System.IO.File.ReadAllText(Application.persistentDataPath + "/Pacjent.json").ToString();
+            //String pacjent = System.IO.File.ReadAllText("Pacjent.json").ToString();
+            String pacjent = System.IO.File.ReadAllText(Application.persistentDataPath + "/Pacjent.json").ToString();
 
             pacjent = pacjent.Trim('[');
             pacjent = pacjent.Trim(']');

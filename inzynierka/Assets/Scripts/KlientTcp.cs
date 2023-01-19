@@ -26,31 +26,39 @@ public class KlientTcp : MonoBehaviour
         {
             TcpClient tcpclnt = new TcpClient();
             Console.WriteLine("Oczekiwanie na połączenie...");
-            tcpclnt.Connect("150.254.137.80", 8001);
-            //tcpclnt.Connect("192.168.110.151", 8080);
+            tcpclnt.Connect("192.168.130.151", 8080);
+            //tcpclnt.Connect("150.254.137.80", 8000);
             Console.WriteLine("Conected");
             Console.Write("Enter the string to be transmited: ");
 
             //orzesłanie jsona pacjenta obecnego do serwera 
             //String str = Console.ReadLine();
-            String str = System.IO.File.ReadAllText(@"C:\Users\pawel\Downloads\zosia_drwalska.json");
-            String OX = System.IO.File.ReadAllText("WynikiOX.txt").ToString();
-            String OY = System.IO.File.ReadAllText("WynikiOY.txt").ToString();
-            String OZ = System.IO.File.ReadAllText("WynikiOZ.txt").ToString();
-            str = str.Trim('[', ']');
-            Console.WriteLine(str);
+            String str = System.IO.File.ReadAllText(Application.persistentDataPath + "/Pacjent.json");
+            String OX = System.IO.File.ReadAllText(Application.persistentDataPath +"/WynikiOX.txt");
+            String OY = System.IO.File.ReadAllText(Application.persistentDataPath + "/WynikiOY.txt");
+            String OZ = System.IO.File.ReadAllText(Application.persistentDataPath + "/WynikiOZ.txt");
+            char[] MyChar = { '[', ']', '\n' };
+            str = str.TrimStart(MyChar);
 
+            string[] podzielone = str.Split(',');
+
+            str = podzielone[0] + "," + podzielone[1] + "," + OX + "," + OY + "," + OZ + "}";
+            str = str.TrimStart(MyChar);
+            Console.WriteLine("wysyłam");
+            Console.WriteLine(str);
             //konwersja stringa na bity
             Stream stm = tcpclnt.GetStream();
             ASCIIEncoding asen = new ASCIIEncoding();
             byte[] ba = asen.GetBytes(str);
             Console.WriteLine("Nadawanie....");
+            Console.WriteLine(ba.Length);
+
             stm.Write(ba, 0, ba.Length);
 
 
             //otrzymanie wiadomości od serwera
-            byte[] bb = new byte[100];
-            int k = stm.Read(bb, 0, 100);
+            byte[] bb = new byte[120];
+            int k = stm.Read(bb, 0, 120);
             String zs = "";
             for (int i = 0; i < k; i++)
             {
@@ -60,11 +68,11 @@ public class KlientTcp : MonoBehaviour
             Console.WriteLine("Otrzymane:" + zs);
 
 
-            System.IO.File.WriteAllText("Pacjent.json", zs);
+            System.IO.File.WriteAllText(Application.persistentDataPath + "/Pacjent.json", zs);
 
 
             tcpclnt.Close();
-
+            Console.ReadKey();
         }
         catch (Exception e)
         {
