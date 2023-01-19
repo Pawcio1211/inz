@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoxeX : MonoBehaviour
+public class ScreenyDoInzynierki : MonoBehaviour
 {
+    public float speed;
+    public Transform centre;
+    private float posX, posZ, angle = 0, r = 9;
+
     // Start is called before the first frame update
     void Start()
     {

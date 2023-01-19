@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class MoveY : MonoBehaviour
 {
     private float speed;
-    public Transform centre;
-    private float posY, posZ, angle = 0;
-    float r = 9;
+    private float posY, posZ, angle = 0, r = 9;
     bool side, go, tri;
 
     // Start is called before the first frame update
@@ -32,8 +30,8 @@ public class MoveY : MonoBehaviour
         {
             angle = angle + Time.deltaTime * speed;
 
-            posY = centre.position.x + Mathf.Sin(angle) * r;
-            posZ = centre.position.x + Mathf.Cos(angle) * r;
+            posY = Mathf.Sin(angle) * r;
+            posZ = Mathf.Cos(angle) * r;
             transform.position = new Vector3(0, posY, posZ);
         }
         

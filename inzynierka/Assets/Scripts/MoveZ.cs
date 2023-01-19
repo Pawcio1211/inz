@@ -32,8 +32,6 @@ public class MoveZ : MonoBehaviour
             transform.Rotate(new Vector3(0, 0, speed));
             posZ = target.rotation.z;
         }
-
-        Debug.Log(posZ);
     }
 
     public void Set()

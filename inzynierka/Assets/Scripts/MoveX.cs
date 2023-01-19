@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MoveX : MonoBehaviour
 {
-    private float speed;
-    public Transform centre;
-    private float posX, posZ, angle = 0;
-    float r = 9;
+    public float speed;
+    private float posX, posZ, angle = 0, r = 9;
     bool side, go, tri;
 
     // Start is called before the first frame update
@@ -32,32 +30,31 @@ public class MoveX : MonoBehaviour
         {
             angle = angle + Time.deltaTime * speed;
         
-            posX = centre.position.x + Mathf.Sin(angle) * r;
-            posZ = centre.position.x + Mathf.Cos(angle) * r;
+            posX = Mathf.Sin(angle) * r;
+            posZ = Mathf.Cos(angle) * r;
             transform.position = new Vector3(posX, 0, posZ);
         }
-        
     }
 
     public void Set() 
     {
         go = true;
-        if (angle >= 0.9f) 
+        if (angle >= 0.8f) 
         {
             side = true;
         }
         if (side == false)
         {
-            speed = 0.1f;
+            speed = 0.2f;
         }
 
-        if (angle <= -0.9f) 
+        if (angle <= -0.8f) 
         {
             side = false;
         }        
         if (side == true)
         {
-            speed = -0.1f;
+            speed = -0.2f;
         }
     }
     public void Remove() { speed = 0f; }
