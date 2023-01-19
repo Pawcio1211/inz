@@ -154,8 +154,8 @@ public class TestOY : MonoBehaviour
             sr.Close();
             Console.ReadLine();
              */
-            //String pacjent = System.IO.File.ReadAllText("Pacjent.json");
-            String pacjent = System.IO.File.ReadAllText(Application.persistentDataPath + "/Pacjent.json");
+            String pacjent = System.IO.File.ReadAllText("Pacjent.json");
+            //String pacjent = System.IO.File.ReadAllText(Application.persistentDataPath + "/Pacjent.json");
 
             pacjent = pacjent.Trim('[', ']');
 
@@ -174,8 +174,8 @@ public class TestOY : MonoBehaviour
     {
         try
         {
-            //StreamWriter sw = new StreamWriter("WynikiOY.txt");
-            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOY.txt");
+            StreamWriter sw = new StreamWriter("WynikiOY.txt");
+            //StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOY.txt");
             //sw.WriteLine("OY: " + L + " " + R);
             sw.WriteLine("\"yL\":\"" + L + "\",\"yR\":\"" + R + "\"");
             sw.Close();
