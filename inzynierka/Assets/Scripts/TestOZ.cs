@@ -22,11 +22,11 @@ public class TestOZ : MonoBehaviour
     bool blokR = false;
     bool zapis = true;
 
-    string L = "";
-    string R = "";
+    string L = "0";
+    string R = "0";
 
-    public string zL = "";
-    public string zR = "";
+    public string zL = "0";
+    public string zR = "0";
 
     double z;
 
