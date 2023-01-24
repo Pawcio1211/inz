@@ -45,7 +45,7 @@ public class MoveX : MonoBehaviour
         }
         if (side == false)
         {
-            speed = 0.2f;
+            speed = 0.15f;
         }
 
         if (angle <= -0.8f) 
@@ -54,7 +54,7 @@ public class MoveX : MonoBehaviour
         }        
         if (side == true)
         {
-            speed = -0.2f;
+            speed = -0.15f;
         }
     }
     public void Remove() { speed = 0f; }

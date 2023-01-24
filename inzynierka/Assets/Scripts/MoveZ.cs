@@ -55,5 +55,7 @@ public class MoveZ : MonoBehaviour
             speed = -0.1f;
         }
     }
+
+
     public void Remove() { speed = 0; }
 }

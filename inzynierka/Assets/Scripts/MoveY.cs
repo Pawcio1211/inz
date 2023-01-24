@@ -34,13 +34,12 @@ public class MoveY : MonoBehaviour
             posZ = Mathf.Cos(angle) * r;
             transform.position = new Vector3(0, posY, posZ);
         }
-        
     }
 
     public void Set()
     {
         go = true;
-        if (angle >= 0.8f)
+        if (angle >= 0.7f)
         {
             side = true;
         }
@@ -49,7 +48,7 @@ public class MoveY : MonoBehaviour
             speed = 0.1f;
         }
 
-        if (angle <= -0.8f)
+        if (angle <= -0.7f)
         {
             side = false;
         }
@@ -58,5 +57,6 @@ public class MoveY : MonoBehaviour
             speed = -0.1f;
         }
     }
+
     public void Remove() { speed = 0f; }
 }
