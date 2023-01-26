@@ -25,22 +25,25 @@ public class KlientTcp : MonoBehaviour
         try
         {
             Console.WriteLine("Oczekiwanie na połączenie...");
-            //tcpclnt.Connect("192.168.245.151", 8080);
             TcpClient tcpclnt = new TcpClient();
-            tcpclnt.Connect("150.254.137.80", 8000);
+            tcpclnt.Connect("192.168.245.151", 8080);
+            //tcpclnt.Connect("150.254.137.80", 8000);
             Console.WriteLine("Conected");
             Console.Write("Enter the string to be transmited: ");
 
             //orzesłanie jsona pacjenta obecnego do serwera 
             //String str = Console.ReadLine();
             String str = "";
-            if (File.Exists(Application.persistentDataPath + @"\Pacjent.json")
+            if (File.Exists(Application.persistentDataPath + @"\pacjent.json")
                 )
             {
-                str = System.IO.File.ReadAllText(Application.persistentDataPath + @"\Pacjent.json");
+                str = System.IO.File.ReadAllText(Application.persistentDataPath + @"\pacjent.json");
                 String OX = System.IO.File.ReadAllText(Application.persistentDataPath + @"\WynikiOX.txt");
                 String OY = System.IO.File.ReadAllText(Application.persistentDataPath + @"\WynikiOY.txt");
                 String OZ = System.IO.File.ReadAllText(Application.persistentDataPath + @"\WynikiOZ.txt");
+                OX = OX.Remove(OX.Length - 3, 3);
+                OY = OY.Remove(OY.Length - 3, 3);
+                OZ = OZ.Remove(OZ.Length - 2, 2);
                 char[] MyChar = { '[', ']', '\n' };
                 str = str.TrimStart(MyChar);
                 string[] podzielone = str.Split(',');
@@ -73,7 +76,7 @@ public class KlientTcp : MonoBehaviour
                 zs += Convert.ToChar(bb[i]);
             }
 
-            System.IO.File.WriteAllText(Application.persistentDataPath + @"\Pacjent.json", zs);
+            System.IO.File.WriteAllText(Application.persistentDataPath + @"\pacjent.json", zs);
             tcpclnt.Close();
             Console.ReadKey();
             Console.WriteLine("Otrzymane:" + zs);

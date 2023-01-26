@@ -143,7 +143,7 @@ public class TestOX : MonoBehaviour
          */
         try
         {
-            String pacjent = System.IO.File.ReadAllText(Application.persistentDataPath + "/Pacjent.json").ToString();
+            String pacjent = System.IO.File.ReadAllText(Application.persistentDataPath + @"\pacjent.json").ToString();
             //String pacjent = System.IO.File.ReadAllText("/Pacjent.json").ToString();
             Debug.Log(pacjent);
             pacjent = pacjent.Trim('[');
@@ -166,9 +166,9 @@ public class TestOX : MonoBehaviour
         try
         {
             //StreamWriter sw = new StreamWriter("WynikiOX.txt");
-            StreamWriter sw = new StreamWriter(Application.persistentDataPath + "/WynikiOX.txt");
+            StreamWriter sw = new StreamWriter(Application.persistentDataPath + @"\WynikiOX.txt");
             //sw.WriteLine("OX: " + Up + " " + D);
-            sw.WriteLine("\"xUp\":" + Up + ",\"xD\":" + D);
+            sw.WriteLine("\"xUp\":" + "\"" + Up + "\"" + ",\"xD\":" + "\"" + D + "\"");
             sw.Close();
         }
         catch (Exception e)
